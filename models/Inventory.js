@@ -24,7 +24,7 @@ sequelize.authenticate()
     }, 
   },{
    tableName: 'inventories',
-  });;
+  });
 
 
   module.exports = Inventory;

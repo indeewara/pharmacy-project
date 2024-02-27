@@ -1,0 +1,41 @@
+<p>Pharmacy-Project</p>
+<p>Description</p>
+<p>Brief description of the project.
+Prerequisites</p>
+<pre><code>Node.js installed on your machine.
+</code></pre>
+<p>Getting Started</p>
+<pre><code>Clone the repository:
+</code></pre>
+<p>git clone <repository-url></p>
+<pre><code>Navigate into the project directory:
+</code></pre>
+<p>cd <project-directory></p>
+<pre><code>Install dependencies:
+</code></pre>
+<p>npm install</p>
+<p>Running the Project</p>
+<p>To run the project locally, follow these steps:</p>
+<pre><code>Open a terminal and navigate to the project directory.
+
+Run the following command to start the server:
+</code></pre>
+<p>npm run start</p>
+<pre><code>Once the server is running, you can use Postman or any other HTTP client to test the endpoints.
+</code></pre>
+<p>Testing Endpoints</p>
+<pre><code>Use Postman to send requests to the server endpoints.
+
+Make sure to include the necessary data in the request body, headers, or parameters as required.
+
+To access protected endpoints, you need to log in first.
+
+Use the generated JWT token from the login response to authenticate subsequent requests.
+</code></pre>
+<p>Authentication</p>
+<pre><code>Send a POST request to the /login endpoint with the necessary login credentials (e.g., username and password).
+
+Upon successful login, the server will respond with a JWT token.
+
+Include the JWT token in the Authorization header of subsequent requests.
+</code></pre>
