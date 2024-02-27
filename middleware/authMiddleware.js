@@ -7,6 +7,7 @@ const bcrypt = require('bcryptjs');
 const authenticateUser = async (req, res, next) => {
     try {
         let userData;
+
         const { username, password } = req.body;
         if (username && password) {
             const existingUser = await User.findOne({ where: { username } });
@@ -20,6 +21,8 @@ const authenticateUser = async (req, res, next) => {
             }
 
             userData = { userId: existingUser.id, role: existingUser.role };
+            const newToken = jwt.sign(userData, 'your-secret-key', { expiresIn: '1h' });
+            res.locals.token = newToken;
         } else {
             const token = req.headers.authorization && req.headers.authorization.split(' ')[1];
             if (!token) {
@@ -34,8 +37,6 @@ const authenticateUser = async (req, res, next) => {
             }
         }
 
-        const newToken = jwt.sign(userData, 'your-secret-key', { expiresIn: '1h' });
-        res.locals.token = newToken;
         req.userData = userData;
 
         next();
@@ -45,3 +46,4 @@ const authenticateUser = async (req, res, next) => {
 };
 
 module.exports = authenticateUser;
+

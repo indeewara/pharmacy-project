@@ -12,7 +12,7 @@ router.post('/InsertItems',authenticateUser,InvantoryControllers.instertItems);
 router.get('/GetItems',authenticateUser,InvantoryControllers.getItems);
 router.patch('/UpdateItems/:itemID',authenticateUser,InvantoryControllers.updateItemsById);
 router.post('/SoftDeleteItems/:itemID',authenticateUser,InvantoryControllers.softDelete);
-router.post('/DeleteItems/:itemID',authenticateUser,InvantoryControllers.Delete);
+router.delete('/DeleteItems/:itemID',authenticateUser,InvantoryControllers.Delete);
 
 
 

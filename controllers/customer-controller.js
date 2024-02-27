@@ -61,10 +61,6 @@ const getCustomers = async (req, res,next) => {
 
 const updateCustomersById = async (req, res, next) => {
 
-    if (req.userData.role !== 'owner' || req.userData.role !== 'cashier') {
-        return next(new HttpError('Authentication failed. Only Owners and Cashiers Can Perform this action.', 401));
-    }
-
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return next(new HttpError('Invalid input data. Please check your inputs.', 422));
@@ -98,9 +94,13 @@ const updateCustomersById = async (req, res, next) => {
 
 
 const softDelete = async (req, res, next) => {
-    if (req.userData.role !== 'owner') {
-        return next(new HttpError('Authentication failed. Only Owners Can Perform this action.', 401));
+   
+
+    if (!(req.userData.role === 'owner' || req.userData.role === 'manager')) {
+        return next(new HttpError('Authentication failed. Only Owners and Managers Can Perform this action.', 401));
     }
+    
+
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return next(new HttpError('Invalid input data. Please check your inputs.', 422));

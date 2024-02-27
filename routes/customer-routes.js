@@ -13,7 +13,7 @@ router.post('/InsertCustomers',authenticateUser,CustomerControllers.instertCusto
 router.get('/GetCustomers',authenticateUser,CustomerControllers.getCustomers);
 router.patch('/UpdateCustomers/:cusID',authenticateUser,CustomerControllers.updateCustomersById);
 router.post('/SoftDeleteCustomers/:cusID',authenticateUser,CustomerControllers.softDelete);
-router.post('/DeleteCustomers/:cusID',authenticateUser,CustomerControllers.Delete);
+router.delete('/DeleteCustomers/:cusID',authenticateUser,CustomerControllers.Delete);
 
 
 module.exports = router ;

@@ -58,11 +58,7 @@ const getItems = async (req, res,next) => {
 
 const updateItemsById = async (req, res, next) => {
 
-
-    if (req.userData.role !== 'owner' || req.userData.role !== 'manager' || req.userData.role !== 'cashier') {
-        return next(new HttpError('Authentication failed. Only Owners , Managers and Cashiers Can Perform this action.', 401));
-    }
- 
+  
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return next(new HttpError('Invalid input data. Please check your inputs.', 422));
@@ -97,9 +93,10 @@ const updateItemsById = async (req, res, next) => {
 
 const softDelete = async (req, res, next) => {
 
-    if (req.userData.role !== 'owner' || req.userData.role !== 'manager') {
+    if (!(req.userData.role === 'owner' || req.userData.role === 'manager')) {
         return next(new HttpError('Authentication failed. Only Owners and Managers Can Perform this action.', 401));
     }
+    
  
 
     const errors = validationResult(req);
