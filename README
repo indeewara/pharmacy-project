@@ -34,7 +34,7 @@ To run the project locally, follow these steps:
     Run the following command to start the server:
 
 
-npm run start
+npm start
 
 
     Once the server is running, you can use Postman or any other HTTP client to test the endpoints.
